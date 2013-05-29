@@ -1,0 +1,29 @@
+<table class="table table-bordered">
+    <thead>
+        <tr>
+        <% 
+            for (var key in headers) {
+                if (headers.hasOwnProperty(key)) {
+        %>
+                    <th><%= headers[key] %></th>
+        <%      }
+            }
+        %>
+        </tr>
+    </thead>
+
+    <tbody>
+    <% rows.each(function(index, model) { %>
+        <tr <%= model %>>
+        <% 
+            for (var key in model) {
+                if (model.hasOwnProperty(key)) {
+        %>
+                    <td><%= model.attr(key) %></td>
+        <%      }
+            }
+        %>
+        </tr>
+    <% }); %>
+    </tbody>
+</table>
